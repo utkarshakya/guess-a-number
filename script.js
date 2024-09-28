@@ -12,9 +12,8 @@ let startNewGame = document.querySelector('#restart')
 let previousGuesses = [];
 let remainingGuesses = 7;
 let randomNumber = Math.floor(Math.random() * 100 + 1);
-console.log(randomNumber);
 
-
+// This will lister the check button.
 checkButton.addEventListener('click', (e) => {
     e.preventDefault();
     validateValue(input_number.value);
@@ -36,27 +35,27 @@ function validateValue(value) {
 
 // This function check the number matches the random number or not.
 function checkNumber(number) {
-    if (number === randomNumber) {
-        displayMessage(guessed_m1, `Congratulation 🎉 You Win 😉`);
-        displayMessage(guessed_m2, `The Number Is ${randomNumber}`);
-        setNewGame();
-    }
-    else if (number > randomNumber) {
-        displayMessage(guessed_m1, `The Number Is Low 🪫`);
-    }
-    else {
-        displayMessage(guessed_m1, `The Number Is High ⚡`);
-    }
     input_number.value = ''
     remainingGuesses--;
     remaining_guesses.innerHTML = `Remaining Guesses = ${remainingGuesses}`;
     previousGuesses.push(number);
     previous_guesses.innerHTML = `Previous Guesses<br>[ ${previousGuesses} ]`;
 
-    if (remainingGuesses == 0) {
+    if (number === randomNumber) {
+        displayMessage(guessed_m1, `Congratulation 🎉 You Win 😉`);
+        displayMessage(guessed_m2, `The Number Is ${randomNumber}`);
+        setNewGame();
+    }
+    else if (remainingGuesses == 0) {
         displayMessage(guessed_m1, `Sorry 🙇 You Lose 😟`);
         displayMessage(guessed_m2, `The Number Is ${randomNumber}`);
         setNewGame()
+    }
+    else if (number > randomNumber) {
+        displayMessage(guessed_m1, `The Number Is Lower 🪫 Than This.`);
+    }
+    else if(number < randomNumber) {
+        displayMessage(guessed_m1, `The Number Is Higher ⚡ Than This.`);
     }
 }
 
@@ -76,14 +75,14 @@ function setNewGame() {
     })
 }
 
-    function restartGame() {
-        input_number.disabled = false;
-        checkButton.disabled = false;
-        remainingGuesses = 10;
-        remaining_guesses.innerHTML = `Remaining Guesses = ${remainingGuesses}`;
-        previousGuesses = [];
-        previous_guesses.innerHTML = `Previous Guesses = [ ${previousGuesses} ]`;
-        displayMessage(guessed_m1, ``);
-        displayMessage(guessed_m2, ``);
-        randomNumber = Math.floor(Math.random() * 100 + 1);
-    }
+function restartGame() {
+    input_number.disabled = false;
+    checkButton.disabled = false;
+    remainingGuesses = 10;
+    remaining_guesses.innerHTML = `Remaining Guesses = ${remainingGuesses}`;
+    previousGuesses = [];
+    previous_guesses.innerHTML = `Previous Guesses = [ ${previousGuesses} ]`;
+    displayMessage(guessed_m1, ``);
+    displayMessage(guessed_m2, ``);
+    randomNumber = Math.floor(Math.random() * 100 + 1);
+}
