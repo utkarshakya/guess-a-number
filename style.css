@@ -135,7 +135,7 @@ form{
 .signature a{
     color: rgba(255, 255, 255, 0.5);
     text-decoration: none;
-    transition: all 0.5s linear;
+    transition: all 0.3s linear;
 }
 .signature a:hover{
     color: rgba(255, 255, 255, 0.9);
