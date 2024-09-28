@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess A Number</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="signature">
+        <!-- <a href="" target="_blank" title="Talk to me"><span class="caveat">@utkarshakya</span></a> -->
+        <a href="" target="_blank" title="Click to get the code of this project"><span class="caveat">Source Code</span></a>
+    </div>
+    <div id="start">
+        <h1 id="heading">Guess A Number Game</h1>
+        <p id="sub-heading">Try Guessing A Number Between 1 And 100, You Have 7 Guesses.</p>
+    </div>
+    <form>
+        <div id="input-field">
+            <input type="text" placeholder="Enter Number Here" id="input-number">
+            <span id="input-message"></span>
+        </div>
+        <button id="check">CHECK</button>
+    </form>
+    <div id="game-states">
+        <span id="remaining-guess">Remaining Guesses = 7</span>
+        <span id="previous-guess">Previous Guesses<br>[ ]</span>
+    </div>
+    <div id="your-guess">
+        <span id="guessed-message">
+            <span id="guessedM1"></span>
+            <span id="guessedM2"></span>
+        </span>
+        <button id="restart">RESTART</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
