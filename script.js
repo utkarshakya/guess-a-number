@@ -78,7 +78,7 @@ function setNewGame() {
 function restartGame() {
     input_number.disabled = false;
     checkButton.disabled = false;
-    remainingGuesses = 10;
+    remainingGuesses = 7;
     remaining_guesses.innerHTML = `Remaining Guesses = ${remainingGuesses}`;
     previousGuesses = [];
     previous_guesses.innerHTML = `Previous Guesses = [ ${previousGuesses} ]`;
